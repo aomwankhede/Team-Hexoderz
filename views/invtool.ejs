@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cryptocurrency Identifier</title>
+    <style>
+html{
+	background: url("https://thumbs.dreamstime.com/b/ultra-hd-abstract-bitcoin-crypto-currency-blockchain-technology-world-map-background-illustration-global-106043545.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+        /* center the content on the page */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* background-color: antiquewhite; */
+}
+
+/* style the heading */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* style the input field */
+input {
+  padding: 0.5rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+/* style the button */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* style the output text */
+#output {
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+#task{
+	font-weight: bolder;
+}
+    </style>
+</head>
+<body>
+	<h1>Cryptocurrency Identifier</h1>
+	<p id="task">Type a cryptocurrency key or address:</p>
+	<input type="text" id="input" placeholder="Enter key/address"><br>
+	<button onclick="identify()">Identify</button>
+	<p id="output"></p>
+</body>
+	<script>
+		function identify() {
+			// Get the input value
+			var input = document.getElementById("input").value.trim();
+
+			// Call the identifyCryptocurrency function
+			var cryptocurrency = identifyCryptocurrency(input);
+
+			// Set the output text
+			var output = document.getElementById("output");
+			if (cryptocurrency) {
+				output.innerHTML = "This is a " + cryptocurrency + " address.";
+			} else {
+				output.innerHTML = "Could not identify the cryptocurrency.";
+			}
+		}
+
+		function identifyCryptocurrency(key) {
+			// Bitcoin public key formats
+			if (/^02|03[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Bitcoin";
+			}
+			if (/^04[0-9A-Fa-f]{128}$/.test(key)) {
+			  return "Bitcoin";
+			}
+
+			// Bitcoin private key formats
+			if (/^[5KL][0-9A-Za-z]{50,51}$/.test(key)) {
+			  return "Bitcoin";
+			}
+			if (/^[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Bitcoin";
+			}
+			if (/^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{51}$/.test(key)) {
+			  return "Bitcoin";
+			}
+
+			// Ethereum public key formats
+			if (/^04[0-9A-Fa-f]{128}$/.test(key)) {
+			  return "Ethereum";
+			}
+			if (/^02|03[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Ethereum";
+			}
+			if (/^0x[0-9a-fA-F]{40}$/.test(key)) {
+			  return "Ethereum";
+			}
+
+			// Ethereum private key format
+			if (/^[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Ethereum";
+			}
+
+			// Ripple public key format
+			if (/^[0-9a-fA-F]{66}$/.test(key)) {
+			  return "Ripple";
+			}
+
+			// Ripple private key format
+			if (/^[0-9a-fA-F]{64}$/.test(key)) {
+			  return "Ripple";
+			}
+
+			// Litecoin public key formats
+			if (/^02|03[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Litecoin";
+			}
+			if (/^04[0-9A-Fa-f]{128}$/.test(key)) {
+			  return "Litecoin";
+			}
+
+			// Litecoin private key formats
+			if (/^[5KL][0-9A-Za-z]{50,51}$/.test(key)) {
+			  return "Litecoin";
+			}
+			if (/^[0-9A-Fa-f]{64}$/.test(key)) {
+			  return "Litecoin";
+			}
+			if (/^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{51}$/.test(key)) {
+			  return "Litecoin";
+            }
+        }
+	</script>
