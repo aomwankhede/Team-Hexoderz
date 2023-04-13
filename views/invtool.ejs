@@ -18,6 +18,7 @@ body {
   margin: 0;
   padding: 0;
   /* background-color: antiquewhite; */
+  
 }
 
 /* style the heading */
@@ -48,15 +49,17 @@ button {
 
 /* style the output text */
 #output {
-  font-size: 1rem;
+  font-size: 2rem;
   margin-top: 2rem;
 }
 
 #task{
 	font-weight: bolder;
 }
+
     </style>
 </head>
+
 <body>
 	<h1>Cryptocurrency Identifier</h1>
 	<p id="task">Type a cryptocurrency key or address:</p>
@@ -144,6 +147,9 @@ button {
 			}
 			if (/^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{51}$/.test(key)) {
 			  return "Litecoin";
+            }
+			if (/^4([0-9AB]{1})([0-9a-zA-Z]{93})$ig/.test(key)) {
+			  return "Monero";
             }
         }
 	</script>

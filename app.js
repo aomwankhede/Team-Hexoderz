@@ -16,7 +16,7 @@ app.set("view engine" ,"ejs");
 
 app.get("/" ,(req,res)=>{
     res.render("home")
-    res.send("Welcome to the homepage")
+    // res.send("Welcome to the homepage")
 })
 
 app.get("/login" ,(req,res)=>{
